@@ -1,0 +1,476 @@
+
+@import "_helpers";
+
+$pixel-size: 7px;
+
+$pixel-color-map: (
+  'O': transparent,
+  'u': #a8a8a8,  // gray
+  'w': #fff,
+  'b': #000,
+  'p': #ffa4a8,  // cheeks
+  's': #ecffff   // stars
+);
+
+
+
+$body-w: 22em;
+$body-h: 16em;
+
+$rainbow-w: 8em;
+$rainbow-h: $body-h - 1em;
+
+$gray: #a8a8a8;
+$pink: #ff45ae;
+$pink-light: #ffa3ff;
+$orange: #ffd39c;
+$cheeks: #ffa4a8;
+
+
+html {
+  background-color: #114475;
+}
+
+body {
+  margin: 0;
+}
+
+.content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+.nyan {
+  position: relative;
+  font-size: $pixel-size;
+  margin-left: -25vw;
+}
+
+/*
+ * RAINBOW
+ */
+
+.nyan__rainbow-holder {
+  display: inline-block;
+  position: relative;
+  top: 1em;
+  left: 1em;
+  vertical-align: top;
+  z-index: -2;
+}
+
+.nyan__rainbow {
+  float: left;
+  width: $rainbow-w;
+  height: $rainbow-h;
+
+  background: linear-gradient(
+    to bottom,
+    #ff1214 0%, #ff1214 16.6%,
+    #ffa70e 16.6%, #ffa70e 33.2%,
+    #ffff05 33.2%, #ffff05 49.8%,
+    #40ff0d 49.8%, #40ff0d 66.4%,
+    #12aeff 66.4%, #12aeff 83%,
+    #7645ff 83%, #7645ff 100%);
+}
+
+@keyframes rainbow {
+  from { margin-top: 0 }
+  to   { margin-top: $rainbow-h / 6 / 2 }
+}
+
+/*
+ * CAT
+ */
+
+.nyan__cat {
+  display: inline-block;
+  position: relative;
+}
+
+ @keyframes cat {
+   50% { margin-top: -1em; }
+ }
+
+
+
+
+// .nyan__head {
+//   position: relative;
+
+//   width: 1em;
+//   height: 1em;
+//
+//   box-shadow:  15px 5px 0 #000000, 20px 5px 0 #000000, 25px 5px 0 #000000, 80px 5px 0 #000000, 85px 5px 0 #000000, 90px 5px 0 #000000, 10px 10px 0 #000000, 15px 10px 0 #9e9e9e, 20px 10px 0 #9e9e9e, 25px 10px 0 #9e9e9e, 30px 10px 0 #000000, 75px 10px 0 #000000, 80px 10px 0 #9e9e9e, 85px 10px 0 #9e9e9e, 90px 10px 0 #9e9e9e, 95px 10px 0 #000000, 10px 15px 0 #000000, 15px 15px 0 #9e9e9e, 20px 15px 0 #9e9e9e, 25px 15px 0 #9e9e9e, 30px 15px 0 #9e9e9e, 35px 15px 0 #000000, 70px 15px 0 #000000, 75px 15px 0 #9e9e9e, 80px 15px 0 #9e9e9e, 85px 15px 0 #9e9e9e, 90px 15px 0 #9e9e9e, 95px 15px 0 #000000, 10px 20px 0 #000000, 15px 20px 0 #9e9e9e, 20px 20px 0 #9e9e9e, 25px 20px 0 #9e9e9e, 30px 20px 0 #9e9e9e, 35px 20px 0 #9e9e9e, 40px 20px 0 #000000, 45px 20px 0 #000000, 50px 20px 0 #000000, 55px 20px 0 #000000, 60px 20px 0 #000000, 65px 20px 0 #000000, 70px 20px 0 #9e9e9e, 75px 20px 0 #9e9e9e, 80px 20px 0 #9e9e9e, 85px 20px 0 #9e9e9e, 90px 20px 0 #9e9e9e, 95px 20px 0 #000000, 10px 25px 0 #000000, 15px 25px 0 #9e9e9e, 20px 25px 0 #9e9e9e, 25px 25px 0 #9e9e9e, 30px 25px 0 #9e9e9e, 35px 25px 0 #9e9e9e, 40px 25px 0 #9e9e9e, 45px 25px 0 #9e9e9e, 50px 25px 0 #9e9e9e, 55px 25px 0 #9e9e9e, 60px 25px 0 #9e9e9e, 65px 25px 0 #9e9e9e, 70px 25px 0 #9e9e9e, 75px 25px 0 #9e9e9e, 80px 25px 0 #9e9e9e, 85px 25px 0 #9e9e9e, 90px 25px 0 #9e9e9e, 95px 25px 0 #000000, 10px 30px 0 #000000, 15px 30px 0 #9e9e9e, 20px 30px 0 #9e9e9e, 25px 30px 0 #9e9e9e, 30px 30px 0 #9e9e9e, 35px 30px 0 #9e9e9e, 40px 30px 0 #9e9e9e, 45px 30px 0 #9e9e9e, 50px 30px 0 #9e9e9e, 55px 30px 0 #9e9e9e, 60px 30px 0 #9e9e9e, 65px 30px 0 #9e9e9e, 70px 30px 0 #9e9e9e, 75px 30px 0 #9e9e9e, 80px 30px 0 #9e9e9e, 85px 30px 0 #9e9e9e, 90px 30px 0 #9e9e9e, 95px 30px 0 #000000, 5px 35px 0 #000000, 10px 35px 0 #9e9e9e, 15px 35px 0 #9e9e9e, 20px 35px 0 #9e9e9e, 25px 35px 0 #9e9e9e, 30px 35px 0 #9e9e9e, 35px 35px 0 #9e9e9e, 40px 35px 0 #9e9e9e, 45px 35px 0 #9e9e9e, 50px 35px 0 #9e9e9e, 55px 35px 0 #9e9e9e, 60px 35px 0 #9e9e9e, 65px 35px 0 #9e9e9e, 70px 35px 0 #9e9e9e, 75px 35px 0 #9e9e9e, 80px 35px 0 #9e9e9e, 85px 35px 0 #9e9e9e, 90px 35px 0 #9e9e9e, 95px 35px 0 #9e9e9e, 100px 35px 0 #000000, 5px 40px 0 #000000, 10px 40px 0 #9e9e9e, 15px 40px 0 #9e9e9e, 20px 40px 0 #9e9e9e, 25px 40px 0 #9e9e9e, 30px 40px 0 #9e9e9e, 35px 40px 0 #9e9e9e, 40px 40px 0 #9e9e9e, 45px 40px 0 #9e9e9e, 50px 40px 0 #9e9e9e, 55px 40px 0 #9e9e9e, 60px 40px 0 #9e9e9e, 65px 40px 0 #9e9e9e, 70px 40px 0 #9e9e9e, 75px 40px 0 #9e9e9e, 80px 40px 0 #9e9e9e, 85px 40px 0 #9e9e9e, 90px 40px 0 #9e9e9e, 95px 40px 0 #9e9e9e, 100px 40px 0 #000000, 5px 45px 0 #000000, 10px 45px 0 #9e9e9e, 15px 45px 0 #9e9e9e, 20px 45px 0 #9e9e9e, 25px 45px 0 #ffffff, 30px 45px 0 #000000, 35px 45px 0 #9e9e9e, 40px 45px 0 #9e9e9e, 45px 45px 0 #9e9e9e, 50px 45px 0 #9e9e9e, 55px 45px 0 #9e9e9e, 60px 45px 0 #9e9e9e, 65px 45px 0 #9e9e9e, 70px 45px 0 #9e9e9e, 75px 45px 0 #9e9e9e, 80px 45px 0 #ffffff, 85px 45px 0 #000000, 90px 45px 0 #9e9e9e, 95px 45px 0 #9e9e9e, 100px 45px 0 #000000, 5px 50px 0 #000000, 10px 50px 0 #9e9e9e, 15px 50px 0 #9e9e9e, 20px 50px 0 #9e9e9e, 25px 50px 0 #000000, 30px 50px 0 #000000, 35px 50px 0 #9e9e9e, 40px 50px 0 #9e9e9e, 45px 50px 0 #9e9e9e, 50px 50px 0 #9e9e9e, 55px 50px 0 #9e9e9e, 60px 50px 0 #000000, 65px 50px 0 #9e9e9e, 70px 50px 0 #9e9e9e, 75px 50px 0 #9e9e9e, 80px 50px 0 #000000, 85px 50px 0 #000000, 90px 50px 0 #9e9e9e, 95px 50px 0 #9e9e9e, 100px 50px 0 #000000, 5px 55px 0 #000000, 10px 55px 0 #9e9e9e, 15px 55px 0 #ff5722, 20px 55px 0 #ff5722, 25px 55px 0 #9e9e9e, 30px 55px 0 #9e9e9e, 35px 55px 0 #9e9e9e, 40px 55px 0 #9e9e9e, 45px 55px 0 #9e9e9e, 50px 55px 0 #9e9e9e, 55px 55px 0 #9e9e9e, 60px 55px 0 #9e9e9e, 65px 55px 0 #9e9e9e, 70px 55px 0 #9e9e9e, 75px 55px 0 #9e9e9e, 80px 55px 0 #9e9e9e, 85px 55px 0 #9e9e9e, 90px 55px 0 #ff5722, 95px 55px 0 #ff5722, 100px 55px 0 #000000, 5px 60px 0 #000000, 10px 60px 0 #9e9e9e, 15px 60px 0 #ff5722, 20px 60px 0 #ff5722, 25px 60px 0 #9e9e9e, 30px 60px 0 #000000, 35px 60px 0 #9e9e9e, 40px 60px 0 #9e9e9e, 45px 60px 0 #9e9e9e, 50px 60px 0 #9e9e9e, 55px 60px 0 #000000, 60px 60px 0 #9e9e9e, 65px 60px 0 #9e9e9e, 70px 60px 0 #9e9e9e, 75px 60px 0 #9e9e9e, 80px 60px 0 #000000, 85px 60px 0 #9e9e9e, 90px 60px 0 #ff5722, 95px 60px 0 #ff5722, 100px 60px 0 #000000, 10px 65px 0 #000000, 15px 65px 0 #9e9e9e, 20px 65px 0 #9e9e9e, 25px 65px 0 #9e9e9e, 30px 65px 0 #000000, 35px 65px 0 #000000, 40px 65px 0 #000000, 45px 65px 0 #000000, 50px 65px 0 #000000, 55px 65px 0 #000000, 60px 65px 0 #000000, 65px 65px 0 #000000, 70px 65px 0 #000000, 75px 65px 0 #000000, 80px 65px 0 #000000, 85px 65px 0 #9e9e9e, 90px 65px 0 #9e9e9e, 95px 65px 0 #000000, 15px 70px 0 #000000, 20px 70px 0 #9e9e9e, 25px 70px 0 #9e9e9e, 30px 70px 0 #9e9e9e, 35px 70px 0 #9e9e9e, 40px 70px 0 #9e9e9e, 45px 70px 0 #9e9e9e, 50px 70px 0 #9e9e9e, 55px 70px 0 #9e9e9e, 60px 70px 0 #9e9e9e, 65px 70px 0 #9e9e9e, 70px 70px 0 #9e9e9e, 75px 70px 0 #9e9e9e, 80px 70px 0 #9e9e9e, 85px 70px 0 #9e9e9e, 90px 70px 0 #000000, 20px 75px 0 #000000, 25px 75px 0 #000000, 30px 75px 0 #000000, 35px 75px 0 #000000, 40px 75px 0 #000000, 45px 75px 0 #000000, 50px 75px 0 #000000, 55px 75px 0 #000000, 60px 75px 0 #000000, 65px 75px 0 #000000, 70px 75px 0 #000000, 75px 75px 0 #000000, 80px 75px 0 #000000, 85px 75px 0 #000000;
+// }
+
+
+/*
+ * HEAD
+ */
+
+$head: (
+  (O O b b O O O O O O O O b b O O)
+  (O b u u b O O O O O O b u u b O)
+  (O b u u u b O O O O b u u u b O)
+  (O b u u u u b b b b u u u u b O)
+  (O b u u u u u u u u u u u u b O)
+  (b u u u u u u u u u u u u u u b)
+  (b u u u w b u u u u u w b u u b)
+  (b u u u b b u u u b u b b u u b)
+  (b u p p u u u u u u u u u p p b)
+  (b u p p u b u u b u u b u p p b)
+  (O b u u u b b b b b b b u u b O)
+  (O O b u u u u u u u u u u b O O)
+  (O O O b b b b b b b b b b O O O)
+);
+
+.nyan__head {
+  @include style-item($head, $pixel-size);
+
+  position: absolute;
+  bottom: -1em;
+  right: -7em;
+  z-index: 1;
+}
+
+@keyframes head {
+  33% { right: -6em; }
+  55% { right: -6em; bottom: 0em; }
+  77% { right: -6em; bottom: 0.2em; }
+}
+
+/*
+ * POP TART
+ */
+
+.nyan__pop-tart {
+  position: relative;
+  width: $body-w;
+  height: $body-h;
+  box-shadow:
+    0px -2em 0 -1em black,
+    0px 2em 0 -1em black,
+    -2em 0 0 -1em black,
+    2em 0 0 -1em black;
+
+  background:
+    linear-gradient($pink-light, $pink-light) 1em 3em/#{add($body-w, -2em)} add($body-h, -6em) no-repeat,
+    linear-gradient($pink-light, $pink-light) 2em 2em/#{add($body-w, -4em)} add($body-h, -4em) no-repeat,
+    linear-gradient($pink-light, $pink-light) 3em 1em/#{add($body-w, -6em)} add($body-h, -2em) no-repeat,
+    linear-gradient($orange, $orange);
+
+  &:after {
+    content: '';
+    display: block;
+    width: 1em;
+    height: 1em;
+
+    background: black;
+    box-shadow:
+      // black pixels on the edges of the body
+      $body-w - 1 0 #000,
+      0 $body-h - 1 #000,
+      $body-w - 1 $body-h - 1 #000,
+
+      // pink pop tart points
+      3em 3em $pink,
+      5em 7em $pink,
+      4em 9em $pink,
+      5em 11em $pink,
+      7em 10em $pink,
+      10em 4em $pink,
+      11em 8em $pink,
+      12em 5em $pink,
+      13em 7em $pink,
+      14em 2em $pink;
+  }
+}
+
+/*
+ * PAWS
+ */
+
+.nyan__paws {
+  position: absolute;
+  bottom: 1em;
+  left: 0;
+  width: 100%;
+  z-index: -1;
+}
+
+@keyframes paws {
+  50% { left: -3em; }
+}
+
+.nyan {
+  &__paw, &__last-paw {
+    display: inline-block;;
+    margin-right: 2.5em;
+    width: 3em;
+    height: 3em;
+  }
+
+  &__last-paw {
+    margin-right: 1.5em;
+  }
+
+  &__paw {
+    background: $gray;
+
+    box-shadow:
+      -1em 0 black,
+      1em 1em black,
+      0em 1em black;
+  }
+
+  &__last-paw {
+    box-shadow:
+      -1em 1em black,
+      1em -1em black;
+
+    background:
+      linear-gradient(black, black) 0 0/1em 1em no-repeat,
+      linear-gradient(black, black) 2em 2em/1em 1em no-repeat,
+      linear-gradient($gray, $gray);
+  }
+
+  @keyframes paw {
+    35% {
+      box-shadow:
+        -1em 0 black,
+        1em 0 black,
+        0em 1em black;
+    }
+    55% {
+      box-shadow:
+        -1em 1em black,
+        1em 0 black,
+        0em 1em black;
+    }
+  }
+}
+
+.nyan__front-paws {
+  position: absolute;
+  right: -3em;
+}
+
+.nyan__back-paws {
+  position: absolute;
+  left: 2em;
+}
+
+/*
+ *
+ */
+
+$tail-frames: (
+  1: (
+    (O b b O O O),
+    (b u u b O O),
+    (b u u b b b),
+    (O b u u u u),
+    (O O b b u u),
+    (O O O O b b),
+    (O O O O O O),
+    (O O O O O O)
+  ),
+  2: (
+    (O O O O O O),
+    (O b b b O O),
+    (b u u b b b),
+    (b b u u u b),
+    (O O b b b u),
+    (O O O O b b),
+    (O O O O O O),
+    (O O O O O O)
+  ),
+  3: (
+    (O O O O O O),
+    (O O O O O O),
+    (O O O O O b),
+    (O O b b b b),
+    (b b b b u u),
+    (b u u u b b),
+    (O b b b b O),
+    (O O O O O O)
+  ),
+  4: (
+    (O O O O O O),
+    (O O O O O O),
+    (O O O O b b),
+    (O O b b u u),
+    (O b u u u u),
+    (b u u b b b),
+    (b b b b O O),
+    (O O O O O O)
+  )
+);
+
+.nyan__tail {
+  @include style-item(map-get($tail-frames, 1), $pixel-size);
+
+  position: absolute;
+  top: 7em;
+  left: -7em;
+  z-index: -1;
+}
+
+@keyframes tail {
+  25% { box-shadow: pixelize(map-get($tail-frames, 2), $pixel-size) }
+  50% { box-shadow: pixelize(map-get($tail-frames, 3), $pixel-size) }
+  75% { box-shadow: pixelize(map-get($tail-frames, 4), $pixel-size) }
+}
+
+/*
+ * STARS
+ */
+
+$star-frames: (
+  1: (
+    (O O O O O O O),
+    (O O O O O O O),
+    (O O O O O O O),
+    (O O O s O O O),
+    (O O O O O O O),
+    (O O O O O O O),
+    (O O O O O O O)
+  ),
+  2: (
+    (O O O O O O O),
+    (O O O O O O O),
+    (O O O s O O O),
+    (O O s O s O O),
+    (O O O s O O O),
+    (O O O O O O O),
+    (O O O O O O O)
+  ),
+  3: (
+    (O O O O O O O),
+    (O O O s O O O),
+    (O O O s O O O),
+    (O s s O s s O),
+    (O O O s O O O),
+    (O O O s O O O),
+    (O O O O O O O)
+  ),
+  4: (
+    (O O O s O O O),
+    (O O O s O O O),
+    (O O O O O O O),
+    (s s O s O s s),
+    (O O O O O O O),
+    (O O O s O O O),
+    (O O O s O O O)
+  ),
+  5: (
+    (O O O s O O O),
+    (O s O O O s O),
+    (O O O O O O O),
+    (s O O O O O s),
+    (O O O O O O O),
+    (O s O O O s O),
+    (O O O s O O O)
+  ),
+  6: (
+    (O O O s O O O),
+    (O s O O O s O),
+    (O O O O O O O),
+    (s O O O O O s),
+    (O O O O O O O),
+    (O s O O O s O),
+    (O O O s O O O)
+  ),
+);
+
+@keyframes star {
+  20% { box-shadow: pixelize(map-get($star-frames, 2), $pixel-size) }
+  40% { box-shadow: pixelize(map-get($star-frames, 3), $pixel-size) }
+  50% { box-shadow: pixelize(map-get($star-frames, 4), $pixel-size) }
+  60% { box-shadow: pixelize(map-get($star-frames, 5), $pixel-size) }
+  80% { box-shadow: pixelize(map-get($star-frames, 6), $pixel-size) }
+}
+
+@keyframes star-movement {
+  from { right: 0; }
+  to { right: 100vw; }
+}
+
+.stars {
+  position: relative;
+  z-index: -3;
+}
+
+$animation-time: 440ms;
+
+.star {
+  @include style-item(map-get($star-frames, 1), $pixel-size);
+
+  position: fixed;
+  animation: star-movement 3s linear infinite;
+  right: length(map-get($star-frames, 1)) * -1em;
+
+  &::after {
+    animation: star $animation-time steps(1, end) infinite;
+  }
+
+  @for $i from 1 through 10 {
+    &:nth-child(#{$i}) {
+      top: $i * 10vh;
+      animation-delay: ($i+10)*($i+20)*($i+30)%4000ms;
+
+      &::after {
+        animation-delay: ($i+10)*($i+20)*($i+30)%1000ms;
+      }
+    }
+  }
+}
+
+/*
+ * ANIMATION
+ */
+
+.nyan-image {
+  position: fixed;
+  width: 289px;
+  opacity: 0.5;
+  left: 423px;
+  top: 75px;
+  z-index: 20;
+  display: none;
+}
+
+
+
+.nyan {
+  &__rainbow {
+    animation: rainbow #{$animation-time / 1.2} steps(2, end) infinite;
+
+    &:nth-child(odd) {
+      animation-delay: #{$animation-time / 2.4};
+    }
+  }
+
+  &__head {
+    animation: head $animation-time steps(1, end) infinite;
+  }
+
+  &__cat {
+    animation: cat $animation-time steps(1, end) #{$animation-time * 0.113} infinite;
+  }
+
+  &__paws {
+    animation: paws $animation-time steps(2, end) infinite;
+  }
+
+  &__paw {
+    animation: paw $animation-time steps(1, end) #{$animation-time * -0.22} infinite;
+  }
+
+  &__tail::after {
+    animation: tail $animation-time/2 steps(1, end) alternate infinite;
+  }
+}

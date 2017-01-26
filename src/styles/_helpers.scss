@@ -1,0 +1,54 @@
+
+
+@function add($a, $b) {
+  @return $a + $b;
+}
+
+@function pixelize($matrix, $size) {
+  $l: length($matrix); // length of the entire
+  $sh: ''; // shadows list
+  $i: $l; // length of the line
+
+  // read through the length of the matrix and decide on the box shadow color and position
+  @for $i from 1 through $l {
+    $row: nth($matrix,$i); //
+
+    @for $j from 1 through length($row){
+        $item: nth($row,$j);
+
+        @if map-has-key($pixel-color-map, $item) {
+          $sh:  $sh + ($j*$size) + ' ' + ($i*$size) + ' ' + map-get($pixel-color-map, $item);
+        } @else {
+          @warn 'there is no color specified in "$pixel-color-map" for: "#{$item}"';
+        }
+
+      @if not ($j == length($row) and $i == $l) {
+        $sh: $sh + ',';
+      }
+    }
+  }
+
+  @return unquote($sh);
+}
+
+@mixin style-item($matrix, $size){
+  position: relative; // pixels stack next to each other
+
+  // set width & height of icon based on size of pixels
+  width:($size * length(nth($matrix,1)));
+  height:($size * length($matrix));
+
+  &:after{
+    content: '';
+
+    // position everything from the top left corner
+    position: absolute;
+    top: (-$size);
+    left: (-$size);
+    width: $size;
+    height: $size;
+
+    // this is where we make the stitch
+    box-shadow: pixelize($matrix, $size);
+  }
+}
