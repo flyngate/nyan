@@ -12,8 +12,6 @@ $pixel-color-map: (
   's': #ecffff   // stars
 );
 
-
-
 $body-w: 22em;
 $body-h: 16em;
 
@@ -45,7 +43,8 @@ body {
 .nyan {
   position: relative;
   font-size: $pixel-size;
-  margin-left: -25vw;
+  margin-left: -75vw;
+  cursor: pointer;
 }
 
 /*
@@ -404,7 +403,7 @@ $star-frames: (
   z-index: -3;
 }
 
-$animation-time: 440ms;
+$animation-time: 380ms;
 
 .star {
   @include style-item(map-get($star-frames, 1), $pixel-size);

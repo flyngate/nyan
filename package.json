@@ -3,9 +3,11 @@
   "version": "0.0.1",
   "author": "Igor Stroganov",
   "scripts": {
-    "build": "node-sass --output-style=compressed ./src/styles -o ./public/styles",
-    "watch": "node-sass --source-map=true -w ./src/styles -o ./public/styles",
-    "clean": "rm -rf ./public"
+    "build": "mkdir -p dist && npm run build_styles && npm run copy_static",
+    "build_styles": "node-sass --output-style=compressed src/styles/ -o dist/styles/",
+    "copy_static": "cp src/index.html dist/ && cp -r src/music/ dist/music/ && cp -r src/js/ dist/js/",
+    "watch": "node-sass --source-map=true -w ./src/styles -o ./dist/styles",
+    "clean": "rm -rf ./dist"
   },
   "dependencies": {
     "node-sass": "^4.3.0"
