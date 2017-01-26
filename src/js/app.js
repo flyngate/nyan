@@ -1,16 +1,19 @@
 
 ;(function () {
     const nyan = document.getElementsByClassName('nyan')[0];
-    const audio = new Audio('/music/original.ogg');
-    let playing = false;
+    const song = new Audio('/music/original.ogg');
+
+    // loop the song
+    song.addEventListener('ended', function() {
+        this.currentTime = 0;
+        this.play();
+    }, false);
 
     nyan.addEventListener('click', function () {
-        console.log('click');
-        if (playing) {
-            audio.pause();
+        if (song.paused) {
+            song.play();
         } else {
-            audio.play();
+            audio.pause();
         }
-        playing = ! playing;
     })
 })();
