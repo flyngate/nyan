@@ -36,15 +36,13 @@ body {
 .content {
   display: flex;
   align-items: center;
-  justify-content: center;
   height: 100vh;
 }
 
 .nyan {
   position: relative;
   font-size: $pixel-size;
-  margin-left: -75vw;
-  cursor: pointer;
+  margin-left: 25%;
 }
 
 /*
@@ -52,16 +50,15 @@ body {
  */
 
 .nyan__rainbow-holder {
-  display: inline-block;
-  position: relative;
+  position: absolute;
+  width: 1000px;
   top: 1em;
-  left: 1em;
-  vertical-align: top;
+  right: 100%;
   z-index: -2;
 }
 
 .nyan__rainbow {
-  float: left;
+  float: right;
   width: $rainbow-w;
   height: $rainbow-h;
 
@@ -127,7 +124,7 @@ $head: (
 );
 
 .nyan__head {
-  @include style-item($head, $pixel-size);
+  @include style-item($head, 1em);
 
   position: absolute;
   bottom: -1em;
@@ -310,7 +307,7 @@ $tail-frames: (
 );
 
 .nyan__tail {
-  @include style-item(map-get($tail-frames, 1), $pixel-size);
+  @include style-item(map-get($tail-frames, 1), 1em);
 
   position: absolute;
   top: 7em;
@@ -319,9 +316,9 @@ $tail-frames: (
 }
 
 @keyframes tail {
-  25% { box-shadow: pixelize(map-get($tail-frames, 2), $pixel-size) }
-  50% { box-shadow: pixelize(map-get($tail-frames, 3), $pixel-size) }
-  75% { box-shadow: pixelize(map-get($tail-frames, 4), $pixel-size) }
+  25% { box-shadow: pixelize(map-get($tail-frames, 2), 1em) }
+  50% { box-shadow: pixelize(map-get($tail-frames, 3), 1em) }
+  75% { box-shadow: pixelize(map-get($tail-frames, 4), 1em) }
 }
 
 /*
@@ -386,11 +383,11 @@ $star-frames: (
 );
 
 @keyframes star {
-  20% { box-shadow: pixelize(map-get($star-frames, 2), $pixel-size) }
-  40% { box-shadow: pixelize(map-get($star-frames, 3), $pixel-size) }
-  50% { box-shadow: pixelize(map-get($star-frames, 4), $pixel-size) }
-  60% { box-shadow: pixelize(map-get($star-frames, 5), $pixel-size) }
-  80% { box-shadow: pixelize(map-get($star-frames, 6), $pixel-size) }
+  20% { box-shadow: pixelize(map-get($star-frames, 2), 1em) }
+  40% { box-shadow: pixelize(map-get($star-frames, 3), 1em) }
+  50% { box-shadow: pixelize(map-get($star-frames, 4), 1em) }
+  60% { box-shadow: pixelize(map-get($star-frames, 5), 1em) }
+  80% { box-shadow: pixelize(map-get($star-frames, 6), 1em) }
 }
 
 @keyframes star-movement {
@@ -400,16 +397,17 @@ $star-frames: (
 
 .stars {
   position: relative;
+  font-size: $pixel-size;
   z-index: -3;
 }
 
 $animation-time: 380ms;
 
 .star {
-  @include style-item(map-get($star-frames, 1), $pixel-size);
+  @include style-item(map-get($star-frames, 1), 1em);
 
   position: fixed;
-  animation: star-movement 3s linear infinite;
+  animation: star-movement 0.75s linear infinite;
   right: length(map-get($star-frames, 1)) * -1em;
 
   &::after {
@@ -427,6 +425,19 @@ $animation-time: 380ms;
     }
   }
 }
+
+.star {
+  @media screen and (min-width: 500px)  { animation-duration: 1.07s; }
+  @media screen and (min-width: 750px)  { animation-duration: 1.60s; }
+  @media screen and (min-width: 900px)  { animation-duration: 1.92s; }
+  @media screen and (min-width: 1050px) { animation-duration: 2.25s; }
+  @media screen and (min-width: 1200px) { animation-duration: 2.57s; }
+  @media screen and (min-width: 1350px) { animation-duration: 2.89s; }
+  @media screen and (min-width: 1500px) { animation-duration: 3.21s; }
+  @media screen and (min-width: 1650px) { animation-duration: 3.53s; }
+  @media screen and (min-width: 1800px) { animation-duration: 3.86s; }
+}
+
 
 /*
  * ANIMATION
