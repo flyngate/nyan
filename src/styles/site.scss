@@ -41,6 +41,8 @@ body {
 
 .header {
   visibility: hidden;
+  position: absolute;
+  left: -1000px;
 }
 
 .nyan {
