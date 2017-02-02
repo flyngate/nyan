@@ -490,3 +490,27 @@ $animation-time: 380ms;
     animation: tail $animation-time/2 steps(1, end) alternate infinite;
   }
 }
+
+.footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  padding-bottom: 6vh;
+  text-align: center;
+}
+
+.audio {
+  background: none;
+  border: none;
+  outline: none;
+  padding: 0;
+  cursor: pointer;
+  color: #ff45ae;
+  transition: color 0.2s ease;
+
+  @media screen and (min-width: 500px) {
+    &:hover {
+      color: #ecffff;
+    }
+  }
+}

@@ -1,7 +1,11 @@
 
 ;(function () {
-    const nyan = document.getElementsByClassName('nyan')[0];
+    const button = document.getElementsByClassName('audio')[0];
+    const playIcon = document.getElementsByClassName('audio__play')[0];
+    const pauseIcon = document.getElementsByClassName('audio__pause')[0];
     const song = new Audio('/music/original.ogg');
+
+    song.volume = 0.2;
 
     // loop the song
     song.addEventListener('ended', function() {
@@ -9,11 +13,15 @@
         this.play();
     }, false);
 
-    nyan.addEventListener('click', function () {
+    button.addEventListener('click', function () {
         if (song.paused) {
             song.play();
+            playIcon.style.display = 'none';
+            pauseIcon.style.display = 'block';
         } else {
-            audio.pause();
+            song.pause();
+            playIcon.style.display = 'block';
+            pauseIcon.style.display = 'none';
         }
-    })
+    });
 })();
