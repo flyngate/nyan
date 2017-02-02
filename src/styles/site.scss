@@ -39,6 +39,10 @@ body {
   height: 100vh;
 }
 
+.header {
+  visibility: hidden;
+}
+
 .nyan {
   position: relative;
   font-size: $pixel-size;
