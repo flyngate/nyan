@@ -5,7 +5,7 @@
         <meta name="author" content="Igor Stroganov">
         <meta name="description" content="Yet another nyan cat">
         <meta name="keywords" content="nyan, cat, rainbow, demo, song, music, original, animation, gif">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+        <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0">
         <link rel="stylesheet" href="/styles/site.css">
     </head>
     <body>
@@ -83,11 +83,13 @@
                 }
               }
             </style>
-
-
         </main>
         <footer class="footer">
             <button class="audio" type="button">
+                <audio class="audio__song">
+                    <source src="/music/original.ogg" type="audio/ogg">
+                    <source src="/music/original.mp3" type="audio/mpeg">
+                </audio>
                 <span class="audio__play">
                     <svg width="64px" height="64px" viewBox="0 0 60 60" fill="currentColor">
                         <path d="M53.479,27.435L10.672,0.915C7.553-1.132,5,0.374,5,4.261v51.48c0,3.885,2.553,5.391,5.672,3.346 l42.807-26.52c0,0,1.521-1.07,1.521-2.566S53.479,27.435,53.479,27.435z"></path>

@@ -3,7 +3,7 @@
     const button = document.getElementsByClassName('audio')[0];
     const playIcon = document.getElementsByClassName('audio__play')[0];
     const pauseIcon = document.getElementsByClassName('audio__pause')[0];
-    const song = new Audio('/music/original.ogg');
+    const song = document.getElementsByClassName('audio__song')[0];
 
     song.volume = 0.2;
 
