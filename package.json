@@ -1,12 +1,19 @@
 {
   "name": "nyan",
+  "type": "module",
   "version": "0.0.1",
   "author": "Igor Stroganov",
-  "scripts": {
-  },
+  "scripts": {},
   "devDependencies": {
-    "del": "^2.2.2",
-    "gulp": "^3.9.1",
-    "gulp-sass": "^3.1.0"
+    "del": "^7.1.0",
+    "gulp": "^5.0.0",
+    "gulp-sass": "^5.1.0"
+  },
+  "dependencies": {
+    "esm": "^3.2.25",
+    "sass": "^1.77.8"
+  },
+  "engines": {
+    "node": ">=18"
   }
 }
